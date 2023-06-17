@@ -49,7 +49,8 @@ class NewVisitorTest(unittest.TestCase):
 		table = self.browser.find_element_by_id('id_list_table')
 		rows = table.find_elements_by_tag_name('tr')
 		self.assertTrue(
-			any(row.text == '1: Buy peacock feathers' for row in rows)
+			any(row.text == '1: Buy peacock feathers' for row in rows),
+			f"New to-do item not appear in table. Content were:\n{table.text}"
 		)
 
 		# Ainda continua havendo uma caixa de texto convidando-a a 
